@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — The Product Vault</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — The Product Vault</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
   <div class="logo">The Product Vault</div>
+
   <nav>
     <a href="index.html">Home</a>
+
     <div class="cart-icon" onclick="toggleCart()">
       🛒 <span id="cart-count">0</span>
     </div>
   </nav>
 </header>
 
+
+<!-- ===== PRODUCT GRID ===== -->
 <main class="grid">
 
+  <!-- PRODUCT -->
   <div class="product">
-    <h2>Essential Hoodie</h2>
-    <p>$49.99</p>
-    <button onclick="addToCart('Essential Hoodie',49.99)">Add to Cart</button>
-    <button onclick="buyNow()">Buy Now</button>
+    <h3>Essential Hoodie</h3>
+    <div class="price">$49.99</div>
+    <p class="desc">Heavyweight comfort built for everyday wear.</p>
+
+    <div class="btn-row">
+      <button class="add-btn" onclick="addToCart('Essential Hoodie', 49.99)">Add to Cart</button>
+      <button class="buy-btn" onclick="checkout()">Buy Now</button>
+    </div>
   </div>
 
+  <!-- PRODUCT -->
   <div class="product">
-    <h2>Premium Tee</h2>
-    <p>$29.99</p>
-    <button onclick="addToCart('Premium Tee',29.99)">Add to Cart</button>
-    <button onclick="buyNow()">Buy Now</button>
+    <h3>Premium Tee</h3>
+    <div class="price">$29.99</div>
+    <p class="desc">Clean fit. Soft fabric. Designed to last.</p>
+
+    <div class="btn-row">
+      <button class="add-btn" onclick="addToCart('Premium Tee', 29.99)">Add to Cart</button>
+      <button class="buy-btn" onclick="checkout()">Buy Now</button>
+    </div>
   </div>
 
+  <!-- PRODUCT -->
   <div class="product">
-    <h2>Street Shorts</h2>
-    <p>$39.99</p>
-    <button onclick="addToCart('Street Shorts',39.99)">Add to Cart</button>
-    <button onclick="buyNow()">Buy Now</button>
+    <h3>Street Shorts</h3>
+    <div class="price">$39.99</div>
+    <p class="desc">Lightweight movement with premium finish.</p>
+
+    <div class="btn-row">
+      <button class="add-btn" onclick="addToCart('Street Shorts', 39.99)">Add to Cart</button>
+      <button class="buy-btn" onclick="checkout()">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT -->
+  <div class="product">
+    <h3>Signature Hat</h3>
+    <div class="price">$24.99</div>
+    <p class="desc">Minimal look. Maximum versatility.</p>
+
+    <div class="btn-row">
+      <button class="add-btn" onclick="addToCart('Signature Hat', 24.99)">Add to Cart</button>
+      <button class="buy-btn" onclick="checkout()">Buy Now</button>
+    </div>
   </div>
 
 </main>
 
-<div id="cart" class="cart"></div>
 
+<!-- ===== CART DROPDOWN ===== -->
+<div id="cart-dropdown">
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <span>Total: <strong id="cart-total">$0.00</strong></span>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  support@theproductvault.net
+</footer>
+
+
+<!-- ===== SCRIPT ===== -->
 <script src="app.js"></script>
+
 </body>
 </html>
