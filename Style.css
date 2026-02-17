@@ -1,181 +1,263 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Product Vault</title>
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<style>
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0a0a0a;
-    color: white;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-header {
-    padding: 30px;
-    text-align: center;
-    border-bottom: 1px solid #222;
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  background: #0a0a0a;
+  border-bottom: 1px solid #222;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-h1 {
-    margin: 0;
-    font-size: 36px;
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.subtitle {
-    color: #aaa;
-    margin-top: 10px;
+nav a {
+  color: #ccc;
+  margin-left: 25px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.section-title {
-    text-align: center;
-    margin: 60px 0 40px 0;
-    font-size: 32px;
+nav a:hover {
+  color: #fff;
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px 60px 20px;
+
+/* ===== CART ICON ===== */
+.cart-icon {
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
 }
 
-.product-card {
-    background: #111;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #222;
-    transition: 0.3s ease;
+#cart-count {
+  background: #fff;
+  color: #000;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
-.product-card:hover {
-    border: 1px solid #444;
-    transform: translateY(-5px);
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  border-bottom: 1px solid #222;
 }
 
-.product-title {
-    font-size: 20px;
-    margin-bottom: 10px;
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.hero p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.hero button {
+  padding: 14px 32px;
+  background: #fff;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.hero button:hover {
+  background: #e6e6e6;
+}
+
+
+/* ===== PRODUCT GRID ===== */
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.product {
+  background: #111;
+  padding: 25px;
+  border: 1px solid #222;
+  transition: all 0.3s ease;
+}
+
+.product:hover {
+  border-color: #444;
+  transform: translateY(-4px);
+}
+
+.product h3 {
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .price {
-    font-size: 22px;
-    margin: 10px 0;
+  color: #fff;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
-.description {
-    color: #aaa;
-    font-size: 14px;
-    margin-bottom: 20px;
+.desc {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-/* BUTTON ROW */
-.button-row {
-    display: flex;
-    gap: 8px;
+
+/* ===== BUTTONS ===== */
+.btn-row {
+  display: flex;
+  gap: 10px;
 }
 
-/* ADD TO CART */
-.cart-btn {
-    flex: 1;
-    padding: 10px;
-    background: #222;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s ease;
+button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.cart-btn:hover {
-    background: #333;
+.add-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
 
-/* BUY NOW */
+.add-btn:hover {
+  background: #222;
+}
+
 .buy-btn {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+  background: #fff;
+  color: #000;
 }
 
+.buy-btn:hover {
+  background: #e6e6e6;
+}
+
+
+/* ===== CART DROPDOWN ===== */
+#cart-dropdown {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  background: #111;
+  border: 1px solid #222;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2000;
+}
+
+#cart-dropdown.open {
+  display: flex;
+}
+
+.cart-item {
+  border-bottom: 1px solid #222;
+  padding-bottom: 10px;
+}
+
+.cart-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cart-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.cart-controls input {
+  width: 60px;
+  background: #000;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 4px;
+}
+
+.cart-controls button {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+}
+
+.cart-footer {
+  border-top: 1px solid #222;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-footer button {
+  background: #fff;
+  color: #000;
+  padding: 8px 14px;
+}
+
+
+/* ===== FOOTER ===== */
 footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid #222;
-    color: #666;
-    font-size: 14px;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #222;
+  color: #777;
+  font-size: 14px;
 }
 
-/* MOBILE */
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-</style>
 
-</head>
-<body>
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-<header>
-    <h1>The Product Vault</h1>
-    <div class="subtitle">Exclusive Drops. Limited Stock.</div>
-</header>
-
-<h2 class="section-title">Exclusive Drops</h2>
-
-<div class="products">
-
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-        <div class="product-title">Essential Hoodie</div>
-        <div class="price">$49.99</div>
-        <div class="description">Heavyweight comfort built for everyday wear.</div>
-        <div class="button-row">
-            <button class="cart-btn">Add to Cart</button>
-            <button class="cart-btn">Add to Cart</button>
-            <a href="https://buy.stripe.com/test_dRm9ASdp2eVjgeH8GpbMQ00" class="buy-btn">Buy Now</a>
-        </div>
-    </div>
-
-    <!-- PRODUCT 2 -->
-    <div class="product-card">
-        <div class="product-title">Premium Tee</div>
-        <div class="price">$29.99</div>
-        <div class="description">Clean fit. Soft fabric. Designed to last.</div>
-        <div class="button-row">
-            <button class="cart-btn">Add to Cart</button>
-            <button class="cart-btn">Add to Cart</button>
-            <a href="https://buy.stripe.com/test_dRm9ASdp2eVjgeH8GpbMQ00" class="buy-btn">Buy Now</a>
-        </div>
-    </div>
-
-    <!-- PRODUCT 3 -->
-    <div class="product-card">
-        <div class="product-title">Street Shorts</div>
-        <div class="price">$39.99</div>
-        <div class="description">Lightweight movement with premium finish.</div>
-        <div class="button-row">
-            <button class="cart-btn">Add to Cart</button>
-            <button class="cart-btn">Add to Cart</button>
-            <a href="https://buy.stripe.com/test_dRm9ASdp2eVjgeH8GpbMQ00" class="buy-btn">Buy Now</a>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    support@theproductvault.net
-</footer>
-
-</body>
-</html>
+  .hero h1 {
+    font-size: 28px;
+  }
+}
