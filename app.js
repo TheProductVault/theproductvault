@@ -74,3 +74,4 @@ function renderCart(){
 }
 
 updateCount();
+ 
