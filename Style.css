@@ -40,15 +40,30 @@ body {
     margin-bottom: 10px;
 }
 
-/* GRID */
+/* PRODUCT GRID — 3 ACROSS */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* PRODUCT */
+/* RESPONSIVE (important for mobile) */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* PRODUCT CARD */
 .product {
     background: #111;
     padding: 20px;
@@ -66,6 +81,7 @@ body {
     border-radius: 6px;
 }
 
+/* TEXT */
 .price {
     font-size: 20px;
     margin: 10px 0;
@@ -87,6 +103,7 @@ body {
     font-weight: bold;
     margin-top: 15px;
     border-radius: 4px;
+    transition: 0.2s ease;
 }
 
 .buy-btn:hover {
