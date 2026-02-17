@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — The Product Vault</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">The Product Vault</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </nav>
+</header>
+
+<main class="grid">
+
+  <div class="product">
+    <h2>Essential Hoodie</h2>
+    <p>$49.99</p>
+    <button onclick="addToCart('Essential Hoodie',49.99)">Add to Cart</button>
+    <button onclick="buyNow()">Buy Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Premium Tee</h2>
+    <p>$29.99</p>
+    <button onclick="addToCart('Premium Tee',29.99)">Add to Cart</button>
+    <button onclick="buyNow()">Buy Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Street Shorts</h2>
+    <p>$39.99</p>
+    <button onclick="addToCart('Street Shorts',39.99)">Add to Cart</button>
+    <button onclick="buyNow()">Buy Now</button>
+  </div>
+
+</main>
+
+<div id="cart" class="cart"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
