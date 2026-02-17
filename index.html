@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Product Vault</title>
-    <link rel="stylesheet" href="Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Product Vault</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-    <div class="logo">The Product Vault</div>
-    <nav>
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="logo">The Product Vault</div>
+
+  <nav>
+    <a href="products.html">Shop</a>
+
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </nav>
 </header>
 
-<!-- HERO -->
+
+<!-- ===== HERO SECTION ===== -->
 <section class="hero">
-    <h1>Exclusive Drops</h1>
-    <p>Limited stock. Premium quality. No restocks.</p>
+  <h1>Exclusive Drops. Limited Availability.</h1>
+  <p>Premium quality. No restocks. Once it's gone — it's gone.</p>
+
+  <a href="products.html">
+    <button>Shop Now</button>
+  </a>
 </section>
 
-<!-- PRODUCTS -->
-<main class="product-grid">
 
-    <div class="product">
-        <img src="https://via.placeholder.com/400x400" alt="Product">
-        <h2>Essential Hoodie</h2>
-        <p class="price">$49.99</p>
-        <p class="desc">Heavyweight comfort built for everyday wear.</p>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
+<!-- ===== FEATURE STRIP ===== -->
+<section class="hero" style="border-top:1px solid #222;">
+  <h2 style="font-size:28px;">Built for Everyday Wear</h2>
+  <p>Minimal design. Maximum durability. Designed to elevate your essentials.</p>
+</section>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/400x400" alt="Product">
-        <h2>Premium Tee</h2>
-        <p class="price">$29.99</p>
-        <p class="desc">Clean fit. Soft fabric. Designed to last.</p>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/400x400" alt="Product">
-        <h2>Street Shorts</h2>
-        <p class="price">$39.99</p>
-        <p class="desc">Lightweight movement with premium finish.</p>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
+<!-- ===== CART DROPDOWN ===== -->
+<div id="cart-dropdown">
+  <div id="cart-items"></div>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/400x400" alt="Product">
-        <h2>Signature Hat</h2>
-        <p class="price">$24.99</p>
-        <p class="desc">Minimal look. Maximum versatility.</p>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
+  <div class="cart-footer">
+    <span>Total: <strong id="cart-total">$0.00</strong></span>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+</div>
 
-</main>
 
-<!-- FOOTER -->
-<footer class="footer">
-    <p>© 2026 The Product Vault</p>
-    <p>support@theproductvault.net</p>
+<!-- ===== FOOTER ===== -->
+<footer>
+  support@theproductvault.net
 </footer>
+
+
+<!-- ===== SCRIPT ===== -->
+<script src="app.js"></script>
 
 </body>
 </html>
